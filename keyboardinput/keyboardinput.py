@@ -9,7 +9,7 @@ from pololu_drv8835_rpi import motors, MAX_SPEED
 #these are the default values for the motor speeds
 speed = MAX_SPEED
 
-nspeed = speed * -1
+reversespeed = speed * -1
 #Functions
 #The parameters for speed are in percent (eg. go_forward(0.7) would go forward at 70% speed; 
 #default is 100%)
@@ -21,13 +21,13 @@ def go_forward():
     motors.setSpeeds(speed, speed)
 
 def go_backward():
-    motors.setSpeeds(nspeed, nspeed)
+    motors.setSpeeds(reversespeed, reversespeed)
 
 def turn_left():
-    motors.setSpeeds(speed, nspeed)
+    motors.setSpeeds(speed, reversespeed)
 
 def turn_right():
-    motors.setSpeeds(speed, nspeed)
+    motors.setSpeeds(reversespeed, speed)
 
 def main():
     #set up curses window
