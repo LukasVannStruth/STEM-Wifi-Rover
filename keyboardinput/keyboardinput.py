@@ -21,7 +21,7 @@ def go_forward():
     motors.setSpeeds(speed, speed)
 
 def go_backward():
-    motors.setSpeeds(speed, nspeed)
+    motors.setSpeeds(nspeed, nspeed)
 
 def turn_left():
     motors.setSpeeds(speed, nspeed)
