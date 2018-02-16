@@ -21,7 +21,7 @@ def go_forward():
     motors.setSpeeds(speed, speed)
 
 def go_backward():
-    motors.setSpeeds(nspeed, nspeed)
+    motors.setSpeeds(speed, nspeed)
 
 def turn_left():
     motors.setSpeeds(speed, nspeed)
@@ -55,5 +55,7 @@ def main():
             turn_right()
         elif input_char == ord('f'):
             stop()
-            
-main()
+try:      
+    main()
+finally:    
+    motors.setSpeeds(0, 0)
