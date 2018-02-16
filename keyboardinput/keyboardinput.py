@@ -56,3 +56,4 @@ def main():
         elif input_char == ord('f'):
             stop()
             
+main()
