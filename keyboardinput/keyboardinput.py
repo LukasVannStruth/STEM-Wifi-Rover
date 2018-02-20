@@ -46,7 +46,7 @@ def main():
         input_char = STDSCR.getch()
         STDSCR.addstr(input_char)
         if input_char == ord('w') or input_char == curses.KEY_UP:   
-                go_forward()
+            go_forward()
             stop()
         elif input_char == ord('s') or input_char == curses.KEY_DOWN:
             go_backward()
