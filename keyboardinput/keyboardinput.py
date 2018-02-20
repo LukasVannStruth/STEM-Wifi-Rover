@@ -44,7 +44,7 @@ def main():
     #python curses documentation which can be reached at    https://docs.python.org/3/library/curses.html for  non-ascii keys. 
     while True: 
         input_char = STDSCR.getch()
-        STDSCR.addstr(input_char)
+        STDSCR.addstr(0, 0, input_char)
         if input_char == ord('w') or input_char == curses.KEY_UP:   
             go_forward()
             stop()
@@ -59,8 +59,8 @@ def main():
             stop()
         elif input_char == ord('f'):
             stop()
-        STDSCR.
-try:      
+        STDSCR.clear()
+try:
     main()
-finally:    
+finally:
     stop()
