@@ -33,7 +33,6 @@ def main():
     #set up curses window
     STDSCR = curses.initscr()
     #turn off keys echoing to screen
-    curses.noecho()
     #react to keys being pressed instantaneously instead of   waiting for enter to be pressed
     curses.cbreak()
     #replace default values returned with things like the  arrow keys to things like curses.KEY_LEFT
@@ -45,24 +44,22 @@ def main():
     #python curses documentation which can be reached at    https://docs.python.org/3/library/curses.html for  non-ascii keys. 
     while True: 
         input_char = STDSCR.getch()
+        STDSCR.addstr(input_char)
         if input_char == ord('w') or input_char == curses.KEY_UP:   
-            while input_char == ord('w') or input_char == curses.KEY_UP:
                 go_forward()
             stop()
         elif input_char == ord('s') or input_char == curses.KEY_DOWN:
-            while input_char == ord('s') or input_char == curses.KEY_DOWN:
-                go_backward()
+            go_backward()
             stop()
         elif input_char == ord('a') or input_char == curses.KEY_LEFT:
-            while input_char == ord('a') or input_char == curses.KEY_LEFT:
-                turn_left()
+            turn_left()
             stop()    
         elif input_char == ord('d') or input_char == curses.KEY_RIGHT:
-            while input_char == ord('d') or input_char == curses.KEY_RIGHT:
-                turn_right()
+            turn_right()
             stop()
         elif input_char == ord('f'):
             stop()
+        STDSCR.
 try:      
     main()
 finally:    
