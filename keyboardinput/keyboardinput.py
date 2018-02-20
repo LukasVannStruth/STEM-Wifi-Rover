@@ -46,16 +46,24 @@ def main():
     while True: 
         input_char = STDSCR.getch()
         if input_char == ord('w') or input_char == curses.KEY_UP:   
-            go_forward()
-        elif input_char == ord('a') or input_char == curses.KEY_LEFT:
-            go_backward()
+            while input_char == ord('w') or input_char == curses.KEY_UP:
+                go_forward()
+            stop()
         elif input_char == ord('s') or input_char == curses.KEY_DOWN:
-            turn_left()
+            while input_char == ord('s') or input_char == curses.KEY_DOWN:
+                go_backward()
+            stop()
+        elif input_char == ord('a') or input_char == curses.KEY_LEFT:
+            while input_char == ord('a') or input_char == curses.KEY_LEFT:
+                turn_left()
+            stop()    
         elif input_char == ord('d') or input_char == curses.KEY_RIGHT:
-            turn_right()
+            while input_char == ord('d') or input_char == curses.KEY_RIGHT:
+                turn_right()
+            stop()
         elif input_char == ord('f'):
             stop()
 try:      
     main()
 finally:    
-    motors.setSpeeds(0, 0)
+    stop()
